@@ -1,0 +1,862 @@
+[
+  {
+    "id": "a6aa48bc-5648-41a8-b9d0-35c6bd7b5d79",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] GET /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "GET",
+    "operationId": "getLoyaltyAccount",
+    "summary": "Get loyalty account",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Unique loyalty member identifier",
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977714068Z",
+    "updatedAt": "2026-09-01T10:26:50.97771836Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "9637c205-f53b-4f52-b85d-7598b486cc26",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] GET /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "GET",
+    "operationId": "getLoyaltyAccount",
+    "summary": "Get loyalty account",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Unique loyalty member identifier",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977735911Z",
+    "updatedAt": "2026-09-01T10:26:50.977736438Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "dfd35bc1-dcb0-4eb5-8ac8-ad0f161e2c93",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] GET /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "GET",
+    "operationId": "getLoyaltyAccount",
+    "summary": "Get loyalty account",
+    "description": "Missing required path parameter: memberId",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Unique loyalty member identifier",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977768438Z",
+    "updatedAt": "2026-09-01T10:26:50.977769038Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: memberId",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "0ca8ab4d-441c-4c72-900f-03462d37349e",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] GET /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "GET",
+    "operationId": "getLoyaltyAccount",
+    "summary": "Get loyalty account",
+    "description": "Invalid type for parameter memberId (expected string)",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": "Unique loyalty member identifier",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977781256Z",
+    "updatedAt": "2026-09-01T10:26:50.977782245Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter memberId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "65256d98-7354-4efe-b48e-fb6450774143",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] PUT /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "PUT",
+    "operationId": "updateLoyaltyAccount",
+    "summary": "Update account preferences",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977809Z",
+    "updatedAt": "2026-09-01T10:26:50.97780985Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "553ccad1-8eaa-4df6-a9a1-91a7368cf7f2",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] PUT /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "PUT",
+    "operationId": "updateLoyaltyAccount",
+    "summary": "Update account preferences",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977816909Z",
+    "updatedAt": "2026-09-01T10:26:50.977817449Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "75b2f9be-5c79-4bd8-8c6e-4a2751e8fc0f",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] PUT /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "PUT",
+    "operationId": "updateLoyaltyAccount",
+    "summary": "Update account preferences",
+    "description": "Missing required path parameter: memberId",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977827185Z",
+    "updatedAt": "2026-09-01T10:26:50.977827718Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: memberId",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "935ed342-aa93-4ecf-acfb-b6dd631a22db",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] PUT /accounts/{memberId}",
+    "endpoint": "/accounts/{memberId}",
+    "method": "PUT",
+    "operationId": "updateLoyaltyAccount",
+    "summary": "Update account preferences",
+    "description": "Invalid type for parameter memberId (expected string)",
+    "tags": [
+      "Accounts"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.97783656Z",
+    "updatedAt": "2026-09-01T10:26:50.977837021Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter memberId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "69fd07ce-6bb2-40cd-a056-5e2b49623f43",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] GET /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "GET",
+    "operationId": "listPointTransactions",
+    "summary": "List point transactions",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by transaction type",
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.97784845Z",
+    "updatedAt": "2026-09-01T10:26:50.977848931Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "f0dbe744-a6ac-40d1-a3f7-3a1414f268b5",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] GET /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "GET",
+    "operationId": "listPointTransactions",
+    "summary": "List point transactions",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by transaction type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977855715Z",
+    "updatedAt": "2026-09-01T10:26:50.977856241Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "e8d288d5-df42-45f4-bde2-a286611e94fd",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] GET /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "GET",
+    "operationId": "listPointTransactions",
+    "summary": "List point transactions",
+    "description": "Missing required path parameter: memberId",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by transaction type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977865337Z",
+    "updatedAt": "2026-09-01T10:26:50.977865877Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: memberId",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "9b36fe09-3e18-4f12-ae9f-e5384b57ec10",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] GET /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "GET",
+    "operationId": "listPointTransactions",
+    "summary": "List point transactions",
+    "description": "Invalid type for parameter memberId (expected string)",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      },
+      {
+        "name": "type",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Filter by transaction type",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977883289Z",
+    "updatedAt": "2026-09-01T10:26:50.977883904Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter memberId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "c2f804bb-b345-4f12-b80c-f686fd0a9185",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] POST /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "POST",
+    "operationId": "createPointTransaction",
+    "summary": "Record a point transaction",
+    "description": "Happy path: valid request should return 201",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977897321Z",
+    "updatedAt": "2026-09-01T10:26:50.977897851Z",
+    "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 201",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "8a96636f-4c21-4304-b83c-78b6b9fbd1f8",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] POST /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "POST",
+    "operationId": "createPointTransaction",
+    "summary": "Record a point transaction",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977903712Z",
+    "updatedAt": "2026-09-01T10:26:50.977904246Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "f146344c-c901-4fd6-815a-8c08823cedb7",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] POST /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "POST",
+    "operationId": "createPointTransaction",
+    "summary": "Record a point transaction",
+    "description": "Missing required path parameter: memberId",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977913228Z",
+    "updatedAt": "2026-09-01T10:26:50.97791376Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: memberId",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "a0825fc6-a0e3-4b95-a45a-d97acf4c1045",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] POST /accounts/{memberId}/transactions",
+    "endpoint": "/accounts/{memberId}/transactions",
+    "method": "POST",
+    "operationId": "createPointTransaction",
+    "summary": "Record a point transaction",
+    "description": "Invalid type for parameter memberId (expected string)",
+    "tags": [
+      "Transactions"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "memberId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.9779199Z",
+    "updatedAt": "2026-09-01T10:26:50.977920413Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter memberId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "5a2d2fbb-97ac-42c1-91b6-0ea9e6988601",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] GET /rewards",
+    "endpoint": "/rewards",
+    "method": "GET",
+    "operationId": "listRewards",
+    "summary": "List available rewards",
+    "description": "Happy path: valid request should return 200",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "affordableForMemberId",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Return only rewards this member has enough points for",
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977933151Z",
+    "updatedAt": "2026-09-01T10:26:50.977934032Z",
+    "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 200",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "cc52d0c1-9539-4dc8-92eb-67409a876c1e",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] GET /rewards",
+    "endpoint": "/rewards",
+    "method": "GET",
+    "operationId": "listRewards",
+    "summary": "List available rewards",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "200",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "affordableForMemberId",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Return only rewards this member has enough points for",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.97794035Z",
+    "updatedAt": "2026-09-01T10:26:50.977940914Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "1774bfd1-3ff0-42d2-9250-f014f7eefc1d",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] GET /rewards",
+    "endpoint": "/rewards",
+    "method": "GET",
+    "operationId": "listRewards",
+    "summary": "List available rewards",
+    "description": "Invalid type for parameter affordableForMemberId (expected string)",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "affordableForMemberId",
+        "in": "query",
+        "required": false,
+        "type": "string",
+        "description": "Return only rewards this member has enough points for",
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977949033Z",
+    "updatedAt": "2026-09-01T10:26:50.977949582Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter affordableForMemberId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "060b3e01-31d0-49ae-b75a-68a2a33eeebe",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[POSITIVE] POST /rewards/{rewardId}/redeem",
+    "endpoint": "/rewards/{rewardId}/redeem",
+    "method": "POST",
+    "operationId": "redeemReward",
+    "summary": "Redeem a reward",
+    "description": "Happy path: valid request should return 201",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "rewardId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "unit",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977957939Z",
+    "updatedAt": "2026-09-01T10:26:50.977958409Z",
+    "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "POSITIVE",
+    "testDescription": "Happy path: valid request should return 201",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "69989864-2890-4c99-aab4-5f62e1967ded",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[PERFORMANCE] POST /rewards/{rewardId}/redeem",
+    "endpoint": "/rewards/{rewardId}/redeem",
+    "method": "POST",
+    "operationId": "redeemReward",
+    "summary": "Redeem a reward",
+    "description": "Performance: response time should be < 2000ms",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "201",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "rewardId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977966893Z",
+    "updatedAt": "2026-09-01T10:26:50.977967298Z",
+    "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
+    "expectedLatencyMs": 2000,
+    "category": "PERFORMANCE",
+    "testDescription": "Performance: response time should be < 2000ms",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "c2f90269-73dc-464e-9d6b-e5577c8352d0",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] POST /rewards/{rewardId}/redeem",
+    "endpoint": "/rewards/{rewardId}/redeem",
+    "method": "POST",
+    "operationId": "redeemReward",
+    "summary": "Redeem a reward",
+    "description": "Missing required path parameter: rewardId",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "rewardId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.977974232Z",
+    "updatedAt": "2026-09-01T10:26:50.977974703Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Missing required path parameter: rewardId",
+    "generatedByEmail": "admin@forgecrux.com"
+  },
+  {
+    "id": "1ad62241-8a4c-4714-b156-0827ca0d1f40",
+    "microserviceId": "6a96a6821fd5203d92671f32",
+    "title": "[NEGATIVE] POST /rewards/{rewardId}/redeem",
+    "endpoint": "/rewards/{rewardId}/redeem",
+    "method": "POST",
+    "operationId": "redeemReward",
+    "summary": "Redeem a reward",
+    "description": "Invalid type for parameter rewardId (expected string)",
+    "tags": [
+      "Rewards"
+    ],
+    "expectedStatus": "400",
+    "requestBodySample": null,
+    "responseSample": null,
+    "parameters": [
+      {
+        "name": "rewardId",
+        "in": "path",
+        "required": true,
+        "type": "string",
+        "description": null,
+        "example": null
+      }
+    ],
+    "testType": "integration",
+    "status": "ready",
+    "generatedBy": null,
+    "createdAt": "2026-09-01T10:26:50.97798343Z",
+    "updatedAt": "2026-09-01T10:26:50.977983877Z",
+    "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
+    "expectedLatencyMs": null,
+    "category": "NEGATIVE",
+    "testDescription": "Invalid type for parameter rewardId (expected string)",
+    "generatedByEmail": "admin@forgecrux.com"
+  }
+]

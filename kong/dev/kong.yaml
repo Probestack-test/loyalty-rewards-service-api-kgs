@@ -1,0 +1,86 @@
+_format_version: "3.0"
+_transform: true
+
+########################################################
+# SERVICES
+########################################################
+
+services:
+  - name: loyalty-rewards-service-api
+    host: loyalty-rewards-service-api-upstream
+    port: 80
+    protocol: http
+    path: /
+    retries: 5
+    connect_timeout: 60000
+    write_timeout: 60000
+    read_timeout: 60000
+    tags:
+      - env:dev
+      - team:open-banking
+      - app:loyalty-rewards-service-api
+    routes:
+      - name: loyalty-rewards-service-api-get-loyalty-rewards-service-api
+        protocols:
+          - https
+          - http
+        methods:
+          - GET
+        hosts:
+          - api.example.com
+        paths:
+          - /v1/loyalty-rewards-service-api
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+      - name: loyalty-rewards-service-api-post-loyalty-rewards-service-api
+        protocols:
+          - https
+          - http
+        methods:
+          - POST
+        hosts:
+          - api.example.com
+        paths:
+          - /v1/loyalty-rewards-service-api
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+      - name: loyalty-rewards-service-api-get-loyalty-rewards-service-api-id
+        protocols:
+          - https
+          - http
+        methods:
+          - GET
+        hosts:
+          - api.example.com
+        paths:
+          - /v1/loyalty-rewards-service-api/:id
+        strip_path: true
+        preserve_host: false
+        https_redirect_status_code: 426
+        tags:
+          - env:dev
+
+########################################################
+# PLUGINS
+########################################################
+
+plugins:
+  []
+
+########################################################
+# UPSTREAMS + TARGETS
+########################################################
+
+upstreams:
+  - name: loyalty-rewards-service-api-upstream
+    algorithm: round-robin
+    slots: 10000
+    targets:
+      - target: loyalty-rewards-service-api-upstream.example.internal:80
+        weight: 100

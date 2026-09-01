@@ -1,0 +1,137 @@
+{
+  "microserviceId": "6a96a6821fd5203d92671f32",
+  "mocks": [
+    {
+      "id": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+      "microserviceId": "6a96a6821fd5203d92671f32",
+      "specMetadataId": "6a96a6bb40e8243f64aac03d",
+      "apiSpecName": "Loyalty Rewards Service API",
+      "name": "mock-loyalty-rewards-service-api",
+      "mockServiceName": "mock-loyalty-rewards-service-api",
+      "mockServerUrl": "https://forgesphere.probestack.io/mock-api/v1/api/mocks/mock-32e1b0d4",
+      "responseLatencyMs": 0,
+      "mockUrl": "mock-32e1b0d4",
+      "isPrivate": true,
+      "delayMs": 0,
+      "requestCount": 6,
+      "createdAt": "2026-09-01T10:20:05.968Z",
+      "updatedAt": "2026-09-01T10:20:24.742Z",
+      "endpoints": [
+        {
+          "id": "fb16b81b-2397-4270-8193-9fa43ddb77ae",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/accounts/{memberId}",
+          "method": "GET",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"pointBalance\":12450,\"lifetimePoints\":48200,\"tier\":\"GOLD\",\"pointsToNextTier\":2550,\"autoRedeem\":false,\"emailUpdates\":true,\"enrolledAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:05.993Z",
+          "updatedAt": "2026-09-01T10:20:05.994Z"
+        },
+        {
+          "id": "4904040f-33b5-4ad6-9eb4-d94717188c0d",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/accounts/{memberId}",
+          "method": "PUT",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"pointBalance\":12450,\"lifetimePoints\":48200,\"tier\":\"GOLD\",\"pointsToNextTier\":2550,\"autoRedeem\":false,\"emailUpdates\":true,\"enrolledAt\":\"2024-01-01T00:00:00Z\",\"updatedAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"autoRedeem\":true,\"emailUpdates\":false}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:06.002Z",
+          "updatedAt": "2026-09-01T10:20:06.002Z"
+        },
+        {
+          "id": "8e66f380-9de7-4bff-b6ba-28b572ad9195",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/accounts/{memberId}/transactions",
+          "method": "GET",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"EARN\",\"points\":350,\"source\":\"ORDER:ORD-2026-0001\",\"balanceAfter\":12450,\"occurredAt\":\"2024-01-01T00:00:00Z\"}]",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:06.012Z",
+          "updatedAt": "2026-09-01T10:20:06.012Z"
+        },
+        {
+          "id": "fea61c01-c026-4f1b-b0ec-0eda65094c67",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/accounts/{memberId}/transactions",
+          "method": "POST",
+          "responseStatus": 201,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"type\":\"EARN\",\"points\":350,\"source\":\"ORDER:ORD-2026-0001\",\"balanceAfter\":12450,\"occurredAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"type\":\"EARN\",\"points\":350,\"source\":\"ORDER:ORD-2026-0001\",\"note\":\"Points for August order\"}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:06.020Z",
+          "updatedAt": "2026-09-01T10:20:06.021Z"
+        },
+        {
+          "id": "414656d8-c465-4779-a459-b938a63f79e7",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/rewards",
+          "method": "GET",
+          "responseStatus": 200,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "[{\"id\":\"00000000-0000-0000-0000-000000000000\",\"name\":\"10 USD store credit\",\"description\":\"Applies as a discount on your next order\",\"pointCost\":1000,\"category\":\"CREDIT\",\"available\":true}]",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": null,
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:06.029Z",
+          "updatedAt": "2026-09-01T10:20:06.029Z"
+        },
+        {
+          "id": "eb300aec-8e85-480f-8fdb-6ea7fa12236b",
+          "mockId": "a1a8c18e-c2c4-4082-8e68-2e82476f8714",
+          "path": "/rewards/{rewardId}/redeem",
+          "method": "POST",
+          "responseStatus": 201,
+          "responseHeaders": {
+            "Content-Type": "application/json"
+          },
+          "responseBody": "{\"id\":\"00000000-0000-0000-0000-000000000000\",\"rewardId\":\"00000000-0000-0000-0000-000000000000\",\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"pointsBurned\":1000,\"redemptionCode\":\"RWD-8H3K-92QP\",\"status\":\"ISSUED\",\"expiresAt\":\"2024-01-01T00:00:00Z\"}",
+          "delayMs": 0,
+          "isActive": true,
+          "requestBodySample": "{\"memberId\":\"00000000-0000-0000-0000-000000000000\",\"deliveryEmail\":\"john.doe@example.com\"}",
+          "validationMode": "NONE",
+          "validationSchema": null,
+          "validateMethod": true,
+          "createdAt": "2026-09-01T10:20:06.038Z",
+          "updatedAt": "2026-09-01T10:20:06.038Z"
+        }
+      ]
+    }
+  ]
+}

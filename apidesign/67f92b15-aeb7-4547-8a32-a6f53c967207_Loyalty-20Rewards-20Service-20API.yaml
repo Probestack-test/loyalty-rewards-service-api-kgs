@@ -1,0 +1,487 @@
+openapi: 3.0.3
+info:
+  title: Loyalty Rewards Service API
+  version: 1.0.0
+  description: |
+    Manages loyalty point balances, tier progression, and reward redemptions.
+    This API is used as the source specification to automatically generate
+    an API Gateway proxy (Kong or Apigee) with routing, authentication,
+    rate limiting, and caching policies.
+  contact:
+    name: Growth Engineering Team
+    email: loyalty@probestack.io
+  x-proxy-config:
+    upstream-url: https://loyalty-service.probestack.io/v2
+    service-name: loyalty-rewards-gateway
+    rate-limit: 250/minute
+    cors-enabled: true
+    retries: 2
+
+servers:
+  - url: https://gateway.probestack.io/loyalty/v2
+    description: Production Gateway
+  - url: http://localhost:8000/loyalty/v2
+    description: Local Gateway
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Accounts
+    description: Loyalty account balance and tier
+  - name: Transactions
+    description: Earn and burn point transactions
+  - name: Rewards
+    description: Reward catalog and redemption
+
+paths:
+  /accounts/{memberId}:
+    get:
+      tags: [Accounts]
+      summary: Get loyalty account
+      description: Retrieves the point balance, current tier, and progress towards the next tier for a member.
+      operationId: getLoyaltyAccount
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: Unique loyalty member identifier
+      responses:
+        '200':
+          description: Loyalty account fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltyAccount'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [GET]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 250
+          - name: proxy-cache
+            config:
+              cache_ttl: 30
+
+    put:
+      tags: [Accounts]
+      summary: Update account preferences
+      description: Updates the member's communication and auto-redeem preferences. Point balance cannot be set directly.
+      operationId: updateLoyaltyAccount
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccountRequest'
+      responses:
+        '200':
+          description: Account updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltyAccount'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [PUT]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 100
+
+  /accounts/{memberId}/transactions:
+    get:
+      tags: [Transactions]
+      summary: List point transactions
+      description: Returns the earn and burn history for a member, most recent first.
+      operationId: listPointTransactions
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [EARN, BURN, EXPIRY, ADJUSTMENT, ALL]
+            default: ALL
+          description: Filter by transaction type
+      responses:
+        '200':
+          description: Transactions fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PointTransaction'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [GET]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 250
+
+    post:
+      tags: [Transactions]
+      summary: Record a point transaction
+      description: Credits or debits points against the member's balance. Burns are rejected if the balance is insufficient.
+      operationId: createPointTransaction
+      parameters:
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTransactionRequest'
+      responses:
+        '201':
+          description: Transaction recorded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PointTransaction'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [POST]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 60
+
+  /rewards:
+    get:
+      tags: [Rewards]
+      summary: List available rewards
+      description: Returns the reward catalog, optionally filtered to rewards the member can currently afford.
+      operationId: listRewards
+      parameters:
+        - name: affordableForMemberId
+          in: query
+          required: false
+          schema:
+            type: string
+            format: uuid
+          description: Return only rewards this member has enough points for
+      responses:
+        '200':
+          description: Rewards fetched successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reward'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [GET]
+        plugins:
+          - name: cors
+          - name: proxy-cache
+            config:
+              cache_ttl: 180
+
+  /rewards/{rewardId}/redeem:
+    post:
+      tags: [Rewards]
+      summary: Redeem a reward
+      description: Burns the required points and issues a redemption code. Redemption is atomic.
+      operationId: redeemReward
+      parameters:
+        - name: rewardId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RedeemRewardRequest'
+      responses:
+        '201':
+          description: Reward redeemed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Redemption'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+      x-proxy-route:
+        methods: [POST]
+        plugins:
+          - name: cors
+          - name: rate-limiting
+            config:
+              minute: 40
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: API Key required for all gateway requests.
+
+  schemas:
+    LoyaltyAccount:
+      type: object
+      required:
+        - memberId
+        - pointBalance
+        - tier
+      properties:
+        memberId:
+          type: string
+          format: uuid
+        pointBalance:
+          type: integer
+          example: 12450
+        lifetimePoints:
+          type: integer
+          example: 48200
+        tier:
+          type: string
+          enum: [BRONZE, SILVER, GOLD, PLATINUM]
+          example: "GOLD"
+        pointsToNextTier:
+          type: integer
+          example: 2550
+        autoRedeem:
+          type: boolean
+          example: false
+        emailUpdates:
+          type: boolean
+          example: true
+        enrolledAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+
+    UpdateAccountRequest:
+      type: object
+      properties:
+        autoRedeem:
+          type: boolean
+          example: true
+        emailUpdates:
+          type: boolean
+          example: false
+
+    PointTransaction:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        memberId:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [EARN, BURN, EXPIRY, ADJUSTMENT]
+          example: "EARN"
+        points:
+          type: integer
+          description: Positive for earn, negative for burn or expiry
+          example: 350
+        source:
+          type: string
+          example: "ORDER:ORD-2026-0001"
+        balanceAfter:
+          type: integer
+          example: 12450
+        occurredAt:
+          type: string
+          format: date-time
+
+    CreateTransactionRequest:
+      type: object
+      required:
+        - type
+        - points
+      properties:
+        type:
+          type: string
+          enum: [EARN, BURN, ADJUSTMENT]
+          example: "EARN"
+        points:
+          type: integer
+          example: 350
+        source:
+          type: string
+          example: "ORDER:ORD-2026-0001"
+        note:
+          type: string
+          example: "Points for August order"
+
+    Reward:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          example: "10 USD store credit"
+        description:
+          type: string
+          example: "Applies as a discount on your next order"
+        pointCost:
+          type: integer
+          example: 1000
+        category:
+          type: string
+          enum: [CREDIT, MERCHANDISE, EXPERIENCE, DONATION]
+          example: "CREDIT"
+        available:
+          type: boolean
+          example: true
+
+    RedeemRewardRequest:
+      type: object
+      required:
+        - memberId
+      properties:
+        memberId:
+          type: string
+          format: uuid
+        deliveryEmail:
+          type: string
+          format: email
+          example: "john.doe@example.com"
+
+    Redemption:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        rewardId:
+          type: string
+          format: uuid
+        memberId:
+          type: string
+          format: uuid
+        pointsBurned:
+          type: integer
+          example: 1000
+        redemptionCode:
+          type: string
+          example: "RWD-8H3K-92QP"
+        status:
+          type: string
+          enum: [ISSUED, USED, EXPIRED]
+          example: "ISSUED"
+        expiresAt:
+          type: string
+          format: date-time
+
+    ErrorResponse:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        status:
+          type: integer
+          example: 400
+        errorCode:
+          type: string
+          example: "INSUFFICIENT_POINTS"
+        message:
+          type: string
+          example: "Member does not have enough points for this reward"
+        timestamp:
+          type: string
+          format: date-time
+        path:
+          type: string
+          example: "/loyalty/v1/rewards"
+
+  responses:
+    BadRequest:
+      description: Invalid request payload or parameters.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid API Key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Resource not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalError:
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
