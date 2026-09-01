@@ -1,6 +1,6 @@
 [
   {
-    "id": "a6aa48bc-5648-41a8-b9d0-35c6bd7b5d79",
+    "id": "9261ac08-82f9-4b38-bab6-b365808aada2",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] GET /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -27,8 +27,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977714068Z",
-    "updatedAt": "2026-09-01T10:26:50.97771836Z",
+    "createdAt": "2026-09-01T13:06:11.058501271Z",
+    "updatedAt": "2026-09-01T13:06:11.058511385Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -36,7 +36,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "9637c205-f53b-4f52-b85d-7598b486cc26",
+    "id": "0af9e56e-144d-41bb-8998-ce3acf3e289c",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] GET /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -63,8 +63,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977735911Z",
-    "updatedAt": "2026-09-01T10:26:50.977736438Z",
+    "createdAt": "2026-09-01T13:06:11.058541402Z",
+    "updatedAt": "2026-09-01T13:06:11.058542284Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -72,7 +72,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "dfd35bc1-dcb0-4eb5-8ac8-ad0f161e2c93",
+    "id": "f2ca4395-61f1-4481-a784-20c7e12b11f1",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] GET /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -99,8 +99,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977768438Z",
-    "updatedAt": "2026-09-01T10:26:50.977769038Z",
+    "createdAt": "2026-09-01T13:06:11.058669184Z",
+    "updatedAt": "2026-09-01T13:06:11.058670683Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -108,7 +108,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "0ca8ab4d-441c-4c72-900f-03462d37349e",
+    "id": "131862b2-6992-47e6-9a71-a71c718d7728",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] GET /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -135,8 +135,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977781256Z",
-    "updatedAt": "2026-09-01T10:26:50.977782245Z",
+    "createdAt": "2026-09-01T13:06:11.058688639Z",
+    "updatedAt": "2026-09-01T13:06:11.0586892Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -144,7 +144,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "65256d98-7354-4efe-b48e-fb6450774143",
+    "id": "3d6bd41a-3475-48f8-ab60-51dcc6733962",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] PUT /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -171,8 +171,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977809Z",
-    "updatedAt": "2026-09-01T10:26:50.97780985Z",
+    "createdAt": "2026-09-01T13:06:11.058720248Z",
+    "updatedAt": "2026-09-01T13:06:11.058720989Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -180,7 +180,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "553ccad1-8eaa-4df6-a9a1-91a7368cf7f2",
+    "id": "8a896dc2-96d6-4048-aa6f-d3e73a63ffde",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] PUT /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -207,8 +207,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977816909Z",
-    "updatedAt": "2026-09-01T10:26:50.977817449Z",
+    "createdAt": "2026-09-01T13:06:11.058730103Z",
+    "updatedAt": "2026-09-01T13:06:11.058730551Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -216,7 +216,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "75b2f9be-5c79-4bd8-8c6e-4a2751e8fc0f",
+    "id": "a6b5ac5a-a29f-4ffe-9b3e-da41e8053dac",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] PUT /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -243,8 +243,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977827185Z",
-    "updatedAt": "2026-09-01T10:26:50.977827718Z",
+    "createdAt": "2026-09-01T13:06:11.058740994Z",
+    "updatedAt": "2026-09-01T13:06:11.058741509Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -252,7 +252,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "935ed342-aa93-4ecf-acfb-b6dd631a22db",
+    "id": "68a1f10b-2404-4599-b096-c888ca45d7fe",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] PUT /accounts/{memberId}",
     "endpoint": "/accounts/{memberId}",
@@ -279,8 +279,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.97783656Z",
-    "updatedAt": "2026-09-01T10:26:50.977837021Z",
+    "createdAt": "2026-09-01T13:06:11.05874756Z",
+    "updatedAt": "2026-09-01T13:06:11.058748182Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -288,7 +288,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "69fd07ce-6bb2-40cd-a056-5e2b49623f43",
+    "id": "0930f4c5-9f6b-481d-97e4-608194d2c342",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] GET /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -323,8 +323,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.97784845Z",
-    "updatedAt": "2026-09-01T10:26:50.977848931Z",
+    "createdAt": "2026-09-01T13:06:11.058760186Z",
+    "updatedAt": "2026-09-01T13:06:11.058760698Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -332,7 +332,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "f0dbe744-a6ac-40d1-a3f7-3a1414f268b5",
+    "id": "b78b0c64-6fc7-4083-b200-ee04311935db",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] GET /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -367,8 +367,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977855715Z",
-    "updatedAt": "2026-09-01T10:26:50.977856241Z",
+    "createdAt": "2026-09-01T13:06:11.058775637Z",
+    "updatedAt": "2026-09-01T13:06:11.058776336Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -376,7 +376,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "e8d288d5-df42-45f4-bde2-a286611e94fd",
+    "id": "8d6f57b7-e8bf-46b2-8dcf-21c6d48d303a",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] GET /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -411,8 +411,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977865337Z",
-    "updatedAt": "2026-09-01T10:26:50.977865877Z",
+    "createdAt": "2026-09-01T13:06:11.058785909Z",
+    "updatedAt": "2026-09-01T13:06:11.058786422Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -420,7 +420,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "9b36fe09-3e18-4f12-ae9f-e5384b57ec10",
+    "id": "962ff911-fd8d-415c-8b9d-e6f27717df49",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] GET /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -455,8 +455,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977883289Z",
-    "updatedAt": "2026-09-01T10:26:50.977883904Z",
+    "createdAt": "2026-09-01T13:06:11.058793531Z",
+    "updatedAt": "2026-09-01T13:06:11.058794091Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -464,7 +464,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "c2f804bb-b345-4f12-b80c-f686fd0a9185",
+    "id": "04dabe86-e0d0-430b-9335-c5ae8ca09592",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] POST /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -491,8 +491,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977897321Z",
-    "updatedAt": "2026-09-01T10:26:50.977897851Z",
+    "createdAt": "2026-09-01T13:06:11.058805745Z",
+    "updatedAt": "2026-09-01T13:06:11.058806636Z",
     "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -500,7 +500,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "8a96636f-4c21-4304-b83c-78b6b9fbd1f8",
+    "id": "43764463-ddcf-496f-92c6-311248f2e245",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] POST /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -527,8 +527,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977903712Z",
-    "updatedAt": "2026-09-01T10:26:50.977904246Z",
+    "createdAt": "2026-09-01T13:06:11.058813035Z",
+    "updatedAt": "2026-09-01T13:06:11.058813799Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -536,7 +536,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "f146344c-c901-4fd6-815a-8c08823cedb7",
+    "id": "55e383db-b79e-414f-be3c-23647f15c864",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] POST /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -563,8 +563,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977913228Z",
-    "updatedAt": "2026-09-01T10:26:50.97791376Z",
+    "createdAt": "2026-09-01T13:06:11.058822143Z",
+    "updatedAt": "2026-09-01T13:06:11.058822712Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -572,7 +572,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "a0825fc6-a0e3-4b95-a45a-d97acf4c1045",
+    "id": "440772b5-aac5-4afb-bceb-0d7a3cbc2179",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] POST /accounts/{memberId}/transactions",
     "endpoint": "/accounts/{memberId}/transactions",
@@ -599,8 +599,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.9779199Z",
-    "updatedAt": "2026-09-01T10:26:50.977920413Z",
+    "createdAt": "2026-09-01T13:06:11.05882894Z",
+    "updatedAt": "2026-09-01T13:06:11.058829337Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -608,7 +608,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "5a2d2fbb-97ac-42c1-91b6-0ea9e6988601",
+    "id": "6dd1d748-0a74-414c-b81f-5fef5d441778",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] GET /rewards",
     "endpoint": "/rewards",
@@ -635,8 +635,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977933151Z",
-    "updatedAt": "2026-09-01T10:26:50.977934032Z",
+    "createdAt": "2026-09-01T13:06:11.058840344Z",
+    "updatedAt": "2026-09-01T13:06:11.058840852Z",
     "assertions": "pm.test(\"Status code is 200\", function() { if(pm.response.code !== 200) throw new Error(\"Expected 200 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -644,7 +644,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "cc52d0c1-9539-4dc8-92eb-67409a876c1e",
+    "id": "d411332a-2ebe-4977-b0c8-f844070746f4",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] GET /rewards",
     "endpoint": "/rewards",
@@ -671,8 +671,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.97794035Z",
-    "updatedAt": "2026-09-01T10:26:50.977940914Z",
+    "createdAt": "2026-09-01T13:06:11.058846512Z",
+    "updatedAt": "2026-09-01T13:06:11.058846981Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -680,7 +680,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "1774bfd1-3ff0-42d2-9250-f014f7eefc1d",
+    "id": "32fa8500-2ce2-4c92-8e73-f0f0be715afb",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] GET /rewards",
     "endpoint": "/rewards",
@@ -707,8 +707,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977949033Z",
-    "updatedAt": "2026-09-01T10:26:50.977949582Z",
+    "createdAt": "2026-09-01T13:06:11.058856365Z",
+    "updatedAt": "2026-09-01T13:06:11.0588569Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -716,7 +716,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "060b3e01-31d0-49ae-b75a-68a2a33eeebe",
+    "id": "3610b4b0-6c8a-4ee3-8325-23241cbeaaa1",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[POSITIVE] POST /rewards/{rewardId}/redeem",
     "endpoint": "/rewards/{rewardId}/redeem",
@@ -743,8 +743,8 @@
     "testType": "unit",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977957939Z",
-    "updatedAt": "2026-09-01T10:26:50.977958409Z",
+    "createdAt": "2026-09-01T13:06:11.058869709Z",
+    "updatedAt": "2026-09-01T13:06:11.058870363Z",
     "assertions": "pm.test(\"Status code is 201\", function() { if(pm.response.code !== 201) throw new Error(\"Expected 201 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "POSITIVE",
@@ -752,7 +752,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "69989864-2890-4c99-aab4-5f62e1967ded",
+    "id": "8c9230ee-3369-4251-bd7f-ee423616942e",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[PERFORMANCE] POST /rewards/{rewardId}/redeem",
     "endpoint": "/rewards/{rewardId}/redeem",
@@ -779,8 +779,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977966893Z",
-    "updatedAt": "2026-09-01T10:26:50.977967298Z",
+    "createdAt": "2026-09-01T13:06:11.058878773Z",
+    "updatedAt": "2026-09-01T13:06:11.058879296Z",
     "assertions": "pm.test(\"Response time < 2000 ms\", function() { if(pm.response.responseTime > 2000) throw new Error(\"Response time \" + pm.response.responseTime + \"ms exceeds 2000ms\"); });",
     "expectedLatencyMs": 2000,
     "category": "PERFORMANCE",
@@ -788,7 +788,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "c2f90269-73dc-464e-9d6b-e5577c8352d0",
+    "id": "a6b9017a-d7e6-4f0c-84e9-9fef2204cf27",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] POST /rewards/{rewardId}/redeem",
     "endpoint": "/rewards/{rewardId}/redeem",
@@ -815,8 +815,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.977974232Z",
-    "updatedAt": "2026-09-01T10:26:50.977974703Z",
+    "createdAt": "2026-09-01T13:06:11.058886056Z",
+    "updatedAt": "2026-09-01T13:06:11.058886613Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
@@ -824,7 +824,7 @@
     "generatedByEmail": "admin@forgecrux.com"
   },
   {
-    "id": "1ad62241-8a4c-4714-b156-0827ca0d1f40",
+    "id": "19e5271d-7dd0-418e-b33f-e03e63b95773",
     "microserviceId": "6a96a6821fd5203d92671f32",
     "title": "[NEGATIVE] POST /rewards/{rewardId}/redeem",
     "endpoint": "/rewards/{rewardId}/redeem",
@@ -851,8 +851,8 @@
     "testType": "integration",
     "status": "ready",
     "generatedBy": null,
-    "createdAt": "2026-09-01T10:26:50.97798343Z",
-    "updatedAt": "2026-09-01T10:26:50.977983877Z",
+    "createdAt": "2026-09-01T13:06:11.058894313Z",
+    "updatedAt": "2026-09-01T13:06:11.058894867Z",
     "assertions": "pm.test(\"Status code is 400\", function() { if(pm.response.code !== 400) throw new Error(\"Expected 400 but got \" + pm.response.code); });",
     "expectedLatencyMs": null,
     "category": "NEGATIVE",
